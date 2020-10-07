@@ -1,0 +1,11 @@
+header
+  nav
+    ul
+      li
+        a href="#{root_path}" Home
+      li
+        a href="#{accounts_path}" Accounts
+  - unless user_signed_in?
+    a href="#{new_user_session_path}" Sign in
+  - else
+    a data-method="delete" href="#{destroy_user_session_path}" Sign out
