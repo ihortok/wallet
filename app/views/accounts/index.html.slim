@@ -6,6 +6,7 @@ table
       th Name
       th Balance
       th Note
+      th Currency
       th
       th
       th
@@ -16,6 +17,7 @@ table
         td = account.name
         td = account.balance
         td = account.note
+        td = account.currency
         td = link_to 'Show', account
         td = link_to 'Edit', edit_account_path(account)
         td = link_to 'Destroy', account, data: { confirm: 'Are you sure?' }, method: :delete

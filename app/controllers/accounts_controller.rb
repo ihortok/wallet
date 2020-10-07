@@ -1,9 +1,9 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_account, only: %i[show edit update destroy]
 
   def index
-    @accounts = Account.all
+    @accounts = current_user.accounts
   end
 
   def show; end
@@ -46,10 +46,10 @@ class AccountsController < ApplicationController
   private
 
   def set_account
-    @account = Account.find(params[:id])
+    @account = Account.by_user(current_user).find(params[:id])
   end
 
   def account_params
-    params.require(:account).permit(:name, :balance, :note)
+    params.require(:account).permit(:name, :balance, :note, :currency_cd, :user_id)
   end
 end

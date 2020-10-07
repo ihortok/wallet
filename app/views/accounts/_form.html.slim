@@ -6,13 +6,17 @@
         - @account.errors.full_messages.each do |message|
           li = message
 
+  = f.hidden_field :user_id, value: current_user.id
   .field
     = f.label :name
     = f.text_field :name
   .field
+    = f.label :note
+    = f.text_field :note
+  .field
     = f.label :balance
     = f.number_field :balance
   .field
-    = f.label :note
-    = f.text_field :note
+    = f.label :currency
+    = f.collection_select :currency_cd, Account.currencies.hash, :last, :first, prompt: true
   .actions = f.submit
