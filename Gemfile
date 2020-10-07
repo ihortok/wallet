@@ -9,6 +9,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 gem 'sass-rails', '>= 6'
+gem 'simple_enum', '~> 2.3', '>= 2.3.2'
 gem 'slim', '~> 4.1'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
@@ -26,6 +27,7 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '~> 3.2'
+  gem 'slim-rails', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
