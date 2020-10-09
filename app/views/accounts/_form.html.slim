@@ -6,7 +6,6 @@
         - @account.errors.full_messages.each do |message|
           li = message
 
-  = f.hidden_field :user_id, value: current_user.id
   .field
     = f.label :name
     = f.text_field :name

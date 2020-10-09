@@ -10,20 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_194417) do
+ActiveRecord::Schema.define(version: 2020_10_09_045128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "account_ownerships", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "user_id"
+    t.boolean "super_owner", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_account_ownerships_on_account_id"
+    t.index ["user_id"], name: "index_account_ownerships_on_user_id"
+  end
+
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "note"
-    t.integer "balance"
+    t.integer "balance", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "currency_cd"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

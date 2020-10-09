@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# frozen_string_literal: true
+
+user = User.create!(email: 'user@user.com', password: 'passwordSTRONG123', password_confirmation: 'passwordSTRONG123')
+
+accounts = [] << Account.create!(
+  name: 'GreatBank',
+  note: 'Some GreatBank account',
+  balance: 435,
+  currency: 'usd'
+)
+accounts << Account.create!(
+  name: 'Cash',
+  note: 'All the cash of mine',
+  balance: 0,
+  currency: 'eur'
+)
+
+accounts.each { |account| user.accounts << account }
+
+user.account_ownerships.each do |ownership|
+  ownership.update(super_owner: true) if ownership.account.in? accounts
+end
