@@ -3,6 +3,7 @@ class Account < ApplicationRecord
 
   has_many :account_ownerships, dependent: :destroy
   has_many :users, through: :account_ownerships
+  has_many :operations
 
   as_enum :currency, uah: 0, usd: 1, eur: 2, pln: 3
 
