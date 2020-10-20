@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :account_ownerships, dependent: :destroy
   has_many :accounts, through: :account_ownerships
-  has_many :operations, through: :accounts
+  has_many :operations
 end

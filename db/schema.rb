@@ -35,12 +35,18 @@ ActiveRecord::Schema.define(version: 2020_10_09_170914) do
   end
 
   create_table "operations", force: :cascade do |t|
-    t.string "note"
-    t.bigint "account_id"
     t.integer "type_cd"
+    t.bigint "debit_account_id"
+    t.bigint "credit_account_id"
+    t.integer "sum"
+    t.integer "fee"
+    t.string "note"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id"], name: "index_operations_on_account_id"
+    t.index ["credit_account_id"], name: "index_operations_on_credit_account_id"
+    t.index ["debit_account_id"], name: "index_operations_on_debit_account_id"
+    t.index ["user_id"], name: "index_operations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

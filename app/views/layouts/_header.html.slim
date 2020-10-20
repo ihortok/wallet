@@ -5,6 +5,10 @@ header
         a href="#{root_path}" Home
       li
         a href="#{accounts_path}" Accounts
+      li
+        a href="#{operations_path}" Operations
+      li
+        a href="#{new_operation_path}" New Operation
   - unless user_signed_in?
     a href="#{new_user_session_path}" Sign in
   - else

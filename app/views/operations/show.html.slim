@@ -1,9 +1,21 @@
 p
-  strong Note:
+  strong Type:
   = @operation.note
 p
-  strong Accont:
-  = @operation.account.name
+  strong Debit Account:
+  = @operation.debit_account&.name
+p
+  strong Credit Account:
+  = @operation.credit_account&.name
+p
+  strong Sum:
+  = @operation.sum
+p
+  strong Fee:
+  = @operation.fee
+p
+  strong Note:
+  = @operation.note
 
 => link_to 'Edit', edit_operation_path(@operation)
 '|
