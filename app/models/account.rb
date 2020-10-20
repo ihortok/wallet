@@ -7,4 +7,8 @@ class Account < ApplicationRecord
   as_enum :currency, uah: 0, usd: 1, eur: 2, pln: 3
 
   scope :by_user, ->(user_id) { joins(:account_ownerships).where('account_ownerships.user_id = ?', user_id) }
+
+  def operations
+    Operation.where('debit_account_id = ? OR credit_account_id = ?', id, id)
+  end
 end

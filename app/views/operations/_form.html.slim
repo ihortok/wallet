@@ -1,0 +1,27 @@
+= form_for @operation do |f|
+  - if @operation.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@operation.errors.count, "error")} prohibited this operation from being saved:"
+      ul
+        - @operation.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :type
+    = f.select :type_cd, Operation.types.hash, prompt: true
+  .field
+    = f.label :debit_account
+    = f.select :debit_account_id, current_user.accounts.collect { |a| [a.name, a.id] }, prompt: true
+  .field
+    = f.label :credit_account
+    = f.select :credit_account_id, current_user.accounts.collect { |a| [a.name, a.id] }, prompt: true
+  .field
+    = f.label :sum
+    = f.number_field :sum
+  .field
+    = f.label :fee
+    = f.number_field :fee
+  .field
+    = f.label :note
+    = f.text_field :note
+  .actions = f.submit
