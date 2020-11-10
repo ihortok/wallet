@@ -6,7 +6,9 @@ class Operation < ApplicationRecord
   }.freeze
 
   validates :sum, presence: true
+  validates :type, presence: true
 
+  belongs_to :user
   belongs_to :debit_account, class_name: 'Account', optional: true
   belongs_to :credit_account, class_name: 'Account', optional: true
 
