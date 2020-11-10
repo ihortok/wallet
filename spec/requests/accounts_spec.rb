@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe '/accounts', type: :request do
-  let(:account_ownership) { create(:account_ownership) }
-  let(:user) { account_ownership.user }
-  let(:account) { account_ownership.account }
+  let(:user) { create(:user, :with_accounts) }
+  let(:account) { user.accounts.first }
 
   before { sign_in user }
 
