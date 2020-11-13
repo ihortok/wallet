@@ -23,6 +23,6 @@ h1 Listing operations
           td = operation.fee
           td = operation.note
           td = link_to 'Show', operation
-          td = link_to 'Destroy', operation, data: { confirm: 'Are you sure?' }, method: :delete
+          td = link_to 'Destroy', operation, method: :delete
 
 = link_to 'New Operation', new_operation_path

@@ -1,13 +1,19 @@
-p
-  strong Name:
-  = @account.name
-p
-  strong Balance:
-  = @account.balance
-p
-  strong Note:
-  = @account.note
+table.table
+  thead
+    tr
+      th Name
+      th Balance
+      th Note
+      th Currency
+  tbody
+    tr
+      td = @account.name
+      td = @account.balance
+      td = @account.note
+      td = @account.currency
 
 => link_to 'Edit', edit_account_path(@account)
+'|
+=> link_to 'Destroy', @account, data: { confirm: 'Are you sure?' }, method: :delete
 '|
 =< link_to 'Back', accounts_path

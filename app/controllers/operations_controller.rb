@@ -31,9 +31,12 @@ class OperationsController < ApplicationController
     end
   end
 
-  def update; end
-
-  def destroy; end
+  def destroy
+    @operation.destroy
+    respond_to do |format|
+      format.html { redirect_to operations_url, notice: 'Operation was successfully destroyed.' }
+    end
+  end
 
   private
 
