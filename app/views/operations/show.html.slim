@@ -16,8 +16,6 @@ table.table
       td = @operation.fee
       td = @operation.note
 
-=> link_to 'Edit', edit_operation_path(@operation)
-'|
 => link_to 'Destroy', @operation, method: :delete
 '|
 =< link_to 'Back', operations_path
