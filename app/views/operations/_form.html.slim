@@ -1,27 +1,27 @@
 = form_for @operation do |f|
   - if @operation.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@operation.errors.count, "error")} prohibited this operation from being saved:"
+      h2 = "#{pluralize(@operation.errors.count, 'error')} prohibited this operation from being saved:"
       ul
         - @operation.errors.full_messages.each do |message|
           li = message
-
-  .field
+  .form-group
     = f.label :type
-    = f.select :type_cd, Operation.types.hash, prompt: true
-  .field
+    = f.select :type_cd, Operation.types.hash, { prompt: true }, {  class: 'form-control' }
+  .form-group
     = f.label :debit_account
-    = f.select :debit_account_id, current_user.accounts.collect { |a| [a.name, a.id] }, prompt: true
-  .field
+    = f.select :debit_account_id, current_user.accounts.collect { |a| [a.name, a.id] }, { prompt: true }, {  class: 'form-control' }
+  .form-group
     = f.label :credit_account
-    = f.select :credit_account_id, current_user.accounts.collect { |a| [a.name, a.id] }, prompt: true
-  .field
+    = f.select :credit_account_id, current_user.accounts.collect { |a| [a.name, a.id] }, { prompt: true }, {  class: 'form-control' }
+  .form-group
     = f.label :sum
-    = f.number_field :sum
-  .field
+    = f.number_field :sum, class: 'form-control'
+  .form-group
     = f.label :fee
-    = f.number_field :fee
-  .field
+    = f.number_field :fee, class: 'form-control'
+  .form-group
     = f.label :note
-    = f.text_field :note
-  .actions = f.submit
+    = f.text_field :note, class: 'form-control'
+  .ta-center
+    = f.submit 'Submit', class: 'btn btn-primary'
