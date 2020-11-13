@@ -5,4 +5,6 @@ html
     = render 'layouts/partials/header'
     .container
       = render 'layouts/partials/flashes'
-      = yield
+      .row.justify-content-center
+        .col-sm-10.col-md-8.col-lg-6
+          = yield

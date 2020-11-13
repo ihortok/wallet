@@ -1,21 +1,21 @@
 = form_for @account do |f|
   - if @account.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@account.errors.count, "error")} prohibited this account from being saved:"
+      h2 = "#{pluralize(@account.errors.count, 'error')} prohibited this account from being saved:"
       ul
         - @account.errors.full_messages.each do |message|
           li = message
-
-  .field
+  .form-group
     = f.label :name
-    = f.text_field :name
-  .field
+    = f.text_field :name, class: 'form-control'
+  .form-group
     = f.label :note
-    = f.text_field :note
-  .field
+    = f.text_field :note, class: 'form-control'
+  .form-group
     = f.label :balance
-    = f.number_field :balance
-  .field
+    = f.number_field :balance, class: 'form-control'
+  .form-group
     = f.label :currency
-    = f.select :currency_cd, Account.currencies.hash, prompt: true
-  .actions = f.submit
+    = f.select :currency_cd, Account.currencies.hash, { prompt: true }, {  class: 'form-control' }
+  .ta-center
+    = f.submit 'Submit', class: 'btn btn-primary'

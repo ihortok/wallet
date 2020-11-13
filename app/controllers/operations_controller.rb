@@ -13,8 +13,6 @@ class OperationsController < ApplicationController
     @operation = Operation.new
   end
 
-  def edit; end
-
   def create
     @operation = Operation.new(operation_params.merge({ user_id: current_user.id }))
 
@@ -33,9 +31,12 @@ class OperationsController < ApplicationController
     end
   end
 
-  def update; end
-
-  def destroy; end
+  def destroy
+    @operation.destroy
+    respond_to do |format|
+      format.html { redirect_to operations_url, notice: 'Operation was successfully destroyed.' }
+    end
+  end
 
   private
 

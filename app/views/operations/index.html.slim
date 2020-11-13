@@ -1,31 +1,28 @@
 h1 Listing operations
 
-table
-  thead
-    tr
-      th Type
-      th Debit Account
-      th Credit Account
-      th Sum
-      th Fee
-      th Note
-      th
-      th
-      th
-
-  tbody
-    - @operations.each do |operation|
+.x-scroll
+  table.table
+    thead
       tr
-        td = operation.type
-        td = operation.debit_account&.name
-        td = operation.credit_account&.name
-        td = operation.sum
-        td = operation.fee
-        td = operation.note
-        td = link_to 'Show', operation
-        td = link_to 'Edit', edit_operation_path(operation)
-        td = link_to 'Destroy', operation, data: { confirm: 'Are you sure?' }, method: :delete
+        th Type
+        th Debit Account
+        th Credit Account
+        th Sum
+        th Fee
+        th Note
+        th
+        th
 
-br
+    tbody
+      - @operations.each do |operation|
+        tr
+          td = operation.type
+          td = operation.debit_account&.name
+          td = operation.credit_account&.name
+          td = operation.sum
+          td = operation.fee
+          td = operation.note
+          td = link_to 'Show', operation
+          td = link_to 'Destroy', operation, method: :delete
 
 = link_to 'New Operation', new_operation_path

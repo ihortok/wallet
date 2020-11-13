@@ -1,22 +1,21 @@
-p
-  strong Type:
-  = @operation.note
-p
-  strong Debit Account:
-  = @operation.debit_account&.name
-p
-  strong Credit Account:
-  = @operation.credit_account&.name
-p
-  strong Sum:
-  = @operation.sum
-p
-  strong Fee:
-  = @operation.fee
-p
-  strong Note:
-  = @operation.note
+table.table
+  thead
+    tr
+      th Type
+      th Debit Account
+      th Credit Account
+      th Sum
+      th Fee
+      th Note
+  tbody
+    tr
+      td = @operation.type
+      td = @operation.debit_account&.name
+      td = @operation.credit_account&.name
+      td = @operation.sum
+      td = @operation.fee
+      td = @operation.note
 
-=> link_to 'Edit', edit_operation_path(@operation)
+=> link_to 'Destroy', @operation, method: :delete
 '|
 =< link_to 'Back', operations_path

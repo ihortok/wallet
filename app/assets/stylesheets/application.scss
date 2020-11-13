@@ -15,3 +15,23 @@
 */
 
 @import "bootstrap";
+
+.vh-100 {
+  min-height: 100vh;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.m-left {
+  margin-left: 15px;
+}
+
+.m-right {
+  margin-right: 15px;
+}
+
+.x-scroll {
+  overflow-x: auto;
+}
