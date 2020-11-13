@@ -13,8 +13,6 @@ class OperationsController < ApplicationController
     @operation = Operation.new
   end
 
-  def edit; end
-
   def create
     @operation = Operation.new(operation_params.merge({ user_id: current_user.id }))
 
