@@ -8,16 +8,16 @@
   .form-group
     = f.label :type
     = f.select :type_cd, Operation.types.hash, { prompt: true }, {  class: 'form-control' }
-  .form-group
+  .form-group.debit_account.d-none
     = f.label :debit_account
     = f.select :debit_account_id, current_user.accounts.collect { |a| [a.name, a.id] }, { prompt: true }, {  class: 'form-control' }
-  .form-group
+  .form-group.credit_account.d-none
     = f.label :credit_account
     = f.select :credit_account_id, current_user.accounts.collect { |a| [a.name, a.id] }, { prompt: true }, {  class: 'form-control' }
   .form-group
     = f.label :sum
     = f.number_field :sum, class: 'form-control'
-  .form-group
+  .form-group.transaction_fee.d-none
     = f.label :fee
     = f.number_field :fee, class: 'form-control'
   .form-group
