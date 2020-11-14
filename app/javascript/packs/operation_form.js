@@ -3,7 +3,13 @@ let debit_account = document.getElementsByClassName('debit_account')[0];
 let credit_account = document.getElementsByClassName('credit_account')[0];
 let transaction_fee = document.getElementsByClassName('transaction_fee')[0];
 
+operation_type_fields();
+
 operation_type.addEventListener('change', function() {
+  operation_type_fields();
+});
+
+function operation_type_fields() {
   let type_cd = operation_type.value;
 
   switch(type_cd) {
@@ -19,8 +25,8 @@ operation_type.addEventListener('change', function() {
       transaction();
       break;
     }
- }
-});
+  }
+}
 
 function income() {
   if (!credit_account.classList.contains('d-none')) {
