@@ -4,6 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 gem 'bootstrap', '~> 4.5', '>= 4.5.2'
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>= 0.18', '< 2.0'
