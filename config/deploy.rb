@@ -16,3 +16,4 @@ set :keep_releases, 5
 # This is useful if you don't want to use ENV variables
 # append :linked_files, 'config/database.yml', 'config/secrets.yml'
 set :branch, 'deploy'
+set :passenger_restart_with_touch, true
