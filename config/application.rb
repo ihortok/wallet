@@ -29,6 +29,9 @@ module Wallet
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # Custom directories with classes and modules you want to be autoloadable.
+    config.autoload_paths += ["#{config.root}/lib"]
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
