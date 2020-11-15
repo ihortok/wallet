@@ -10,7 +10,6 @@ h1 Listing operations
         th Credit Account
         th Fee
         th Note
-        th
 
     tbody
       - @operations.each do |operation|
@@ -27,6 +26,10 @@ h1 Listing operations
           td = operation.debit_account&.name || '-'
           td = operation.credit_account&.name || '-'
           td = operation.fee || '-'
-          td = operation.note || '-'
+          td
+            - if operation.note.present?
+              = operation.note
+            - else
+              = '-'
 
 = link_to 'New Operation', new_operation_path

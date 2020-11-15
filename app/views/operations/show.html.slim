@@ -7,20 +7,30 @@ table.table
     td
       - if @operation.debit_account
         = link_to @operation.debit_account.name, @operation.debit_account
+      - else
+        = '-'
   tr
     th Credit Account
     td
       - if @operation.credit_account
         = link_to @operation.credit_account.name, @operation.credit_account
+      - else
+        = '-'
   tr
     th Sum
-    td = @operation.sum
+    td
+      - sum = @operation.type == :outlay ? -@operation.sum : @operation.sum
+      = render 'shared/balance_badge', balance: sum
   tr
     th Fee
-    td = @operation.fee
+    td = @operation.fee || '-'
   tr
     th Note
-    td = @operation.note
+    td 
+      - if @operation.note.present?
+        = @operation.note
+      - else
+        = '-'
   tr
 
 => link_to 'Destroy', @operation, method: :delete

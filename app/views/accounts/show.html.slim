@@ -9,7 +9,11 @@ table.table
 
   tr
     th Note
-    td = @account.note
+    td 
+      - if @account.note.present?
+        = @account.note
+      - else
+        = '-'
   tr
     th Currency
     td
