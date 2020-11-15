@@ -1,0 +1,10 @@
+- case
+- when balance.negative?
+  .badge.badge-danger
+    = balance
+- when balance.zero?
+  .badge.badge-secondary
+    = balance
+- when balance.positive?
+  .badge.badge-success
+    = balance

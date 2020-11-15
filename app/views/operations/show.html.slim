@@ -1,20 +1,27 @@
 table.table
-  thead
-    tr
-      th Type
-      th Debit Account
-      th Credit Account
-      th Sum
-      th Fee
-      th Note
-  tbody
-    tr
-      td = @operation.type
-      td = @operation.debit_account&.name
-      td = @operation.credit_account&.name
-      td = @operation.sum
-      td = @operation.fee
-      td = @operation.note
+  tr
+    th Type
+    td = @operation.type
+  tr
+    th Debit Account
+    td
+      - if @operation.debit_account
+        = link_to @operation.debit_account.name, @operation.debit_account
+  tr
+    th Credit Account
+    td
+      - if @operation.credit_account
+        = link_to @operation.credit_account.name, @operation.credit_account
+  tr
+    th Sum
+    td = @operation.sum
+  tr
+    th Fee
+    td = @operation.fee
+  tr
+    th Note
+    td = @operation.note
+  tr
 
 => link_to 'Destroy', @operation, method: :delete
 '|
