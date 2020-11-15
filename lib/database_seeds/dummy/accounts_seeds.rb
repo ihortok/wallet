@@ -12,6 +12,8 @@ module DatabaseSeeds
           password_confirmation: 'passwordSTRONG123'
         )
 
+        return if user.accounts.size >= 3
+
         accounts = [] << FactoryBot.create_list(:account, 3)
 
         accounts.each { |account| user.accounts << account }

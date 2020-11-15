@@ -16,6 +16,6 @@
     = f.number_field :balance, class: 'form-control'
   .form-group
     = f.label :currency
-    = f.select :currency_cd, Account.currencies.hash, { prompt: true }, {  class: 'form-control' }
+    = f.select :currency_id, Currency.all.collect { |c| ["#{c.code} #{c.country}", c.id] }, { prompt: true }, {  class: 'form-control' }
   .ta-center
     = f.submit 'Submit', class: 'btn btn-primary'

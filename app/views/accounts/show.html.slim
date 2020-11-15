@@ -10,7 +10,9 @@ table.table
       td = @account.name
       td = @account.balance
       td = @account.note
-      td = @account.currency
+      td
+        = @account.currency.code
+        = image_tag "currency_flags/#{@account.currency.icon}-flag-icon.png"
 
 => link_to 'Edit', edit_account_path(@account)
 '|
