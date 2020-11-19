@@ -21,8 +21,12 @@ class OperationsController < ApplicationController
       when 0 then @debit_account.update(balance: @debit_account.balance + @sum)
       when 1 then @credit_account.update(balance: @credit_account.balance - @sum)
       when 2
-        @credit_account.update(balance: @credit_account.balance - (@sum + @fee))
-        @debit_account.update(balance: @debit_account.balance + @sum)
+        if @credit_account == @debit_account
+          @credit_account.update(balance: @credit_account.balance - @fee)
+        else
+          @credit_account.update(balance: @credit_account.balance - (@sum + @fee))
+          @debit_account.update(balance: @debit_account.balance + @sum)
+        end
       end
 
       redirect_to @operation, notice: 'Operation was successfully created.'
