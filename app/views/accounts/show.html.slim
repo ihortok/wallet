@@ -1,31 +1,32 @@
-table.table
-  tr
-    th Name
-    td = @account.name
-  tr
-    th Balance
-    td
-      = render 'shared/balance_badge', balance: @account.balance
+section.section
+  table.table
+    tr
+      th Name
+      td = @account.name
+    tr
+      th Balance
+      td
+        = render 'shared/balance_badge', balance: @account.balance
 
-  tr
-    th Note
-    td 
-      - if @account.note.present?
-        = @account.note
-      - else
-        = '-'
-  tr
-    th Currency
-    td
-      - if @account.currency
-        = image_tag "currency_flags/#{@account.currency.icon}-flag-icon.png"
-        span.currency-code
-          = @account.currency.code
-      - else
-        = 'not specified'
+    tr
+      th Note
+      td
+        - if @account.note.present?
+          = @account.note
+        - else
+          = '-'
+    tr
+      th Currency
+      td
+        - if @account.currency
+          = image_tag "currency_flags/#{@account.currency.icon}-flag-icon.png"
+          span.currency-code
+            = @account.currency.code
+        - else
+          = 'not specified'
 
-=> link_to 'Edit', edit_account_path(@account)
-'|
-=> link_to 'Destroy', @account, data: { confirm: 'Are you sure?' }, method: :delete
-'|
-=< link_to 'Back', accounts_path
+  => link_to 'Edit', edit_account_path(@account)
+  '|
+  => link_to 'Destroy', @account, data: { confirm: 'Are you sure?' }, method: :delete
+  '|
+  =< link_to 'Back', accounts_path

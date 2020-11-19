@@ -40,7 +40,12 @@
   font-size: 100%;
 }
 
-.h1-title {
+.h1-title,
+.h2-title {
   text-align: center;
   margin: 1em 0 .7em 0;
+}
+
+.section {
+  margin: 3em 0;
 }

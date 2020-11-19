@@ -1,38 +1,39 @@
-table.table
-  tr
-    th Type
-    td = @operation.type
-  tr
-    th Debit Account
-    td
-      - if @operation.debit_account
-        = link_to @operation.debit_account.name, @operation.debit_account
-      - else
-        = '-'
-  tr
-    th Credit Account
-    td
-      - if @operation.credit_account
-        = link_to @operation.credit_account.name, @operation.credit_account
-      - else
-        = '-'
-  tr
-    th Sum
-    td
-      - sum = @operation.type == :outlay ? -@operation.sum : @operation.sum
-      = render 'shared/balance_badge', balance: sum
-  tr
-    th Fee
-    td = @operation.fee || '-'
-  tr
-    th Note
-    td 
-      - if @operation.note.present?
-        = @operation.note
-      - else
-        = '-'
-  tr
+section.section
+  table.table
+    tr
+      th Type
+      td = @operation.type
+    tr
+      th Debit Account
+      td
+        - if @operation.debit_account
+          = link_to @operation.debit_account.name, @operation.debit_account
+        - else
+          = '-'
+    tr
+      th Credit Account
+      td
+        - if @operation.credit_account
+          = link_to @operation.credit_account.name, @operation.credit_account
+        - else
+          = '-'
+    tr
+      th Sum
+      td
+        - sum = @operation.type == :outlay ? -@operation.sum : @operation.sum
+        = render 'shared/balance_badge', balance: sum
+    tr
+      th Fee
+      td = @operation.fee || '-'
+    tr
+      th Note
+      td
+        - if @operation.note.present?
+          = @operation.note
+        - else
+          = '-'
+    tr
 
-=> link_to 'Destroy', @operation, method: :delete
-'|
-=< link_to 'Back', operations_path
+  => link_to 'Destroy', @operation, method: :delete
+  '|
+  =< link_to 'Back', operations_path
