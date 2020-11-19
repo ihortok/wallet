@@ -11,7 +11,6 @@ header
           a.btn.btn-success href="#{new_user_registration_path}" Sign up
       #navbar.collapse.navbar-collapse
         .navbar-nav
-          a.nav-link href="#{root_path}" Home
           - if user_signed_in?
             a.nav-link href="#{accounts_path}" Accounts
             a.nav-link href="#{operations_path}" Operations
