@@ -3,7 +3,7 @@ class Account < ApplicationRecord
 
   has_many :account_ownerships, dependent: :destroy
   has_many :users, through: :account_ownerships
-  belongs_to :currency
+  belongs_to :currency, optional: true
 
   scope :by_user, ->(user_id) { joins(:account_ownerships).where('account_ownerships.user_id = ?', user_id) }
 
