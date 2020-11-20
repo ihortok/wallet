@@ -32,6 +32,9 @@ module Wallet
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += ["#{config.root}/lib"]
 
+    # Be sure that the lib files are eager loaded on production
+    config.eager_load_paths += ["#{config.root}/lib"]
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
