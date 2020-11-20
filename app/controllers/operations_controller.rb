@@ -21,8 +21,13 @@ class OperationsController < ApplicationController
       when 0 then @debit_account.update(balance: @debit_account.balance + @sum)
       when 1 then @credit_account.update(balance: @credit_account.balance - @sum)
       when 2
-        @credit_account.update(balance: @credit_account.balance - (@sum + @fee))
-        @debit_account.update(balance: @debit_account.balance + @sum)
+        if @credit_account == @debit_account
+          @credit_account.update(balance: @credit_account.balance - @fee)
+        else
+          currecies_check
+          @credit_account.update(balance: @credit_account.balance - (@sum + @fee))
+          @debit_account.update(balance: @debit_account.balance + (@converted_sum || @sum))
+        end
       end
 
       redirect_to @operation, notice: 'Operation was successfully created.'
@@ -54,5 +59,16 @@ class OperationsController < ApplicationController
     @credit_account = Account.find_by(id: operation_params[:credit_account_id])
     @sum = operation_params[:sum].to_i
     @fee = operation_params[:fee].to_i
+  end
+
+  def currecies_check
+    credit_account_rate = @credit_account.currency&.rate
+    debit_account_rate = @debit_account.currency&.rate
+
+    return unless credit_account_rate && debit_account_rate
+
+    return if credit_account_rate == debit_account_rate
+
+    @converted_sum = (@sum / credit_account_rate * debit_account_rate).to_i
   end
 end
