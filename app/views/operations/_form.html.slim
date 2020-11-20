@@ -10,10 +10,10 @@
     = f.select :type_cd, Operation.types.hash, { prompt: true }, {  class: 'form-control' }
   .form-group.debit_account.d-none
     = f.label :debit_account
-    = f.select :debit_account_id, current_user.accounts.collect { |a| [a.name, a.id] }, { prompt: true }, {  class: 'form-control' }
+    = f.select :debit_account_id, current_user.accounts.collect { |a| ["#{a.name} (#{a.currency.code})", a.id] }, { prompt: true }, {  class: 'form-control' }
   .form-group.credit_account.d-none
     = f.label :credit_account
-    = f.select :credit_account_id, current_user.accounts.collect { |a| [a.name, a.id] }, { prompt: true }, {  class: 'form-control' }
+    = f.select :credit_account_id, current_user.accounts.collect { |a| ["#{a.name} (#{a.currency.code})", a.id] }, { prompt: true }, {  class: 'form-control' }
   .form-group
     = f.label :sum
     = f.number_field :sum, class: 'form-control'
