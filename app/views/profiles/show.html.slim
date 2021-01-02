@@ -1,1 +1,13 @@
-h1.h1-title Listing operations
+section.section
+  table.table
+    tr
+      th First name
+      td = @profile.first_name
+    tr
+      th Last name
+      td = @profile.last_name
+    tr
+      th Date of Birth
+      td = @profile.date_of_birth
+
+  =< link_to 'Back', root_path
