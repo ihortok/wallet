@@ -1,0 +1,19 @@
+form action="/profile/update" method="post"
+  - if @profile.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@profile.errors.count, 'error')} prohibited this profile from being saved:"
+      ul
+        - @profile.errors.full_messages.each do |message|
+          li = message
+  = hidden_field_tag :authenticity_token, form_authenticity_token
+  .form-group
+    label for="profile_first_name" First name
+    input#profile_first_name.form-control name="profile[first_name]" type="text" /
+  .form-group
+    label for="profile_last_name" Last name
+    input#profile_last_name.form-control name="profile[last_name]" type="text" /
+  .form-group
+    label for="profile_date_of_birth" Date of birth
+    input#profile_date_of_birth.form-control name="profile[date_of_birth]" type="datetime" /
+  .ta-center
+    input.btn.btn-primary type="submit" name="commit" value="Submit" data-disable-with="Submit"
