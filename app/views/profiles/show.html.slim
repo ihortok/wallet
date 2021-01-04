@@ -1,0 +1,25 @@
+section.section
+  .x-scroll
+    table.table
+      - if @profile.first_name.present?
+        tr
+          th First name
+          td = @profile.first_name
+          td rowspan="3" align="center"
+            = link_to 'Edit', profile_edit_path
+        tr
+          th Last name
+          td = @profile.last_name
+        tr
+          th Date of Birth
+          td = @profile.date_of_birth
+      - else
+        tr
+          td colspan="3"
+            a.btn.btn-primary href="/profile/edit"
+              | Fill up details
+      tr
+        th Email
+        td = @profile.user.email
+        td align="center"
+          = link_to 'Edit', edit_user_registration_path
