@@ -1,43 +1,44 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '3.0.1'
 
-gem 'bootstrap', '~> 4.5', '>= 4.5.2'
-gem 'capistrano', '~> 3.11'
-gem 'capistrano-passenger', '~> 0.2.0'
-gem 'capistrano-rails', '~> 1.4'
-gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
-gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'jbuilder', '~> 2.7'
-gem 'lograge', '~> 0.3.6'
-gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.1'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
-gem 'sass-rails', '>= 6'
-gem 'simple_enum', '~> 2.3', '>= 2.3.2'
-gem 'slim', '~> 4.1'
-gem 'turbolinks', '~> 5'
-gem 'webpacker', '~> 4.0'
+gem 'pg', '~> 1.2', '>= 1.2.3'
+gem 'puma', '~> 5.3', '>= 5.3.2'
+gem 'rails', '~> 6.1', '>= 6.1.3.2'
+gem 'sass-rails', '~> 6.0'
+gem 'turbolinks', '~> 5.2', '>= 5.2.1'
+gem 'webpacker', '~> 5.4'
 
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '~> 1.7', '>= 1.7.5', require: false
+
+gem 'bootstrap'
+gem 'capistrano'
+gem 'capistrano-passenger'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv'
+gem 'devise'
+gem 'lograge'
+gem 'simple_enum'
+gem 'slim'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
-  gem 'factory_bot_rails', '~> 6.1'
-  gem 'faker', '~> 2.14'
-  gem 'pry-rails', '~> 0.3.9'
-  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'dotenv-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'listen', '~> 3.2'
+  gem 'listen', '~> 3.5', '>= 3.5.1'
   gem 'slim-rails', '~> 3.2'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.3.0'
+  gem 'spring-watcher-listen', '~> 2.0', '>= 2.0.1'
+  gem 'web-console', '~> 4.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
