@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.14.1'
+lock '~> 3.16.0'
 
 set :application, 'wallet'
-set :repo_url, 'git@github.com:ihortok/wallet.git'
+set :repo_url, 'git@github.com:ihortok/wallet_rails.git'
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
