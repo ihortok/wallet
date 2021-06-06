@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Account model
 class Account < ApplicationRecord
   validates :name, presence: true
 
