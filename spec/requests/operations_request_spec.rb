@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe '/operations', type: :request do
   let(:user) { create(:user, :with_accounts) }
 
-  before { sign_in user }
+  before do
+    sign_in user
+  end
 
   describe 'POST /create' do
     let(:valid_attributes) do

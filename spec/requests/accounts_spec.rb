@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe '/accounts', type: :request do
+  let(:invitation) { create(:invitation) }
   let(:user) { create(:user, :with_accounts) }
   let(:account) { user.accounts.first }
 
-  before { sign_in user }
+  before do
+    sign_in user
+  end
 
   describe 'GET /index' do
     it 'renders a successful response' do

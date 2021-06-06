@@ -1,5 +1,4 @@
 class OperationsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_operation, only: %i[show edit update destroy]
   before_action :set_operation_params, only: :create
 
