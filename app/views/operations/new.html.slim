@@ -3,8 +3,6 @@ h1.h1-title New Operation
 .cointainer
   .row.justify-content-center
     .col-sm-10.col-md-8.col-lg-6
-      = render 'form'
+      = react_component 'NewOperationForm', authenticity_token: form_authenticity_token, accounts: @accounts, errors: @operation.errors.full_messages
 
 = link_to 'Back', operations_path
-
-= javascript_pack_tag 'operation_form'
