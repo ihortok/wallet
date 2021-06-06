@@ -47,8 +47,6 @@ ActiveRecord::Schema.define(version: 2021_06_06_090457) do
 
   create_table "invitations", force: :cascade do |t|
     t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "operations", force: :cascade do |t|
