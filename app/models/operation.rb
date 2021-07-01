@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Operation model
 class Operation < ApplicationRecord
   TYPES = {
     income: 'income',
