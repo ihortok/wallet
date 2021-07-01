@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+  NewCops: enable
+
+Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context']
