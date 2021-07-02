@@ -2,6 +2,7 @@
 
 module DatabaseSeeds
   module Real
+    # Currencies seeds
     class CurrenciesSeeds
       def execute
         currencies.each do |currency|
