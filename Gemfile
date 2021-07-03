@@ -20,9 +20,10 @@ gem 'capistrano-rails'
 gem 'capistrano-rbenv'
 gem 'devise'
 gem 'lograge'
+gem 'pagy'
+gem 'react-rails'
 gem 'simple_enum'
 gem 'slim'
-gem 'react-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
