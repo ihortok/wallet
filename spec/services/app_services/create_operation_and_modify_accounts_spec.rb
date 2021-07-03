@@ -48,8 +48,8 @@ describe AppServices::CreateOperationAndModifyAccounts do
   end
 
   context 'when different currencies' do
-    let(:rate) { 1.5 }
-    let(:debit_account) { create(:account, currency: create(:currency, rate: rate)) }
+    let(:debit_account_rate) { 1.5 }
+    let(:debit_account) { create(:account, currency: create(:currency, rate: debit_account_rate)) }
     let(:operation) { build(:operation, :transaction, debit_account: debit_account, credit_account: credit_account) }
 
     it 'should add an operation and modify accounts with currency conversion' do
@@ -59,7 +59,9 @@ describe AppServices::CreateOperationAndModifyAccounts do
 
       expect { service.call }.to change(Operation, :count).by 1
 
-      expect(debit_account.balance).to eq(debit_account_balance + (operation.sum * rate).to_i)
+      expect(debit_account.balance).to eq(
+        debit_account_balance + (operation.sum / credit_account.currency.rate * debit_account_rate).to_i
+      )
       expect(credit_account.balance).to eq(credit_account_balance - operation.sum - operation.fee)
     end
   end
