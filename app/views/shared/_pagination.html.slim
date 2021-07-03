@@ -5,23 +5,23 @@
 - link = pagy_link_proc(pagy)
 
 nav.pagy_nav.pagination role="navigation" aria-label="pager"
+  ul.pagination
+    - if pagy.prev
+      li.page-item.page.prev ==> link.call(pagy.prev, pagy_t('pagy.nav.prev'), "aria-label='previous' class='page-link'")
+    - else
+      li.page-item.page.prev.disabled ==> link.call(pagy.prev, pagy_t('pagy.nav.prev'), "aria-label='previous' class='page-link' aria-disabled='true'")
 
-  - if pagy.prev
-    span.page.prev ==> link.call(pagy.prev, pagy_t('pagy.nav.prev'), 'aria-label="previous"')
-  - else
-    span.page.prev.disabled ==> pagy_t('pagy.nav.prev')
+    - pagy.series.each do |item|        # series example: [1, :gap, 7, 8, "9", 10, 11, :gap, 36]
+      - if item.is_a?(Integer)          # page link
+        li.page-item.page ==> link.call(item, item, "class='page-link'")
 
-  - pagy.series.each do |item|        # series example: [1, :gap, 7, 8, "9", 10, 11, :gap, 36]
-    - if item.is_a?(Integer)          # page link
-      span.page ==> link.call(item)
+      - elsif item.is_a?(String)        # current page
+        li.page-item.page.current.disabled ==> link.call(item, item, "class='page-link' aria-disabled='true'")
 
-    - elsif item.is_a?(String)        # current page
-      span.page.current ==> item
+      - elsif item == :gap              # page gap
+        li.page-item.page.gap.disabled ==> link.call('#', '...', "class='page-link' aria-disabled='true'")
 
-    - elsif item == :gap              # page gap
-      span.page.gap ==> pagy_t('pagy.nav.gap')
-
-  - if pagy.next
-    span.page.next == link.call(pagy.next, pagy_t('pagy.nav.next'), 'aria-label="next"')
-  - else
-    span.page.next.disabled == pagy_t('pagy.nav.next')
+    - if pagy.next
+      li.page-item.page.next ==> link.call(pagy.next, pagy_t('pagy.nav.next'), "aria-label='next' class='page-link'")
+    - else
+      li.page-item.page.next.disabled ==> link.call(pagy.next, pagy_t('pagy.nav.next'), "aria-label='next' class='page-link' aria-disabled='true'")
