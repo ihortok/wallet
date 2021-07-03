@@ -149,6 +149,7 @@ GEM
     nokogiri (1.11.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pagy (4.10.1)
     pg (1.2.3)
     popper_js (2.9.2)
     pry (0.14.1)
@@ -299,6 +300,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.5, >= 3.5.1)
   lograge
+  pagy
   pg (~> 1.2, >= 1.2.3)
   pry-rails
   puma (~> 5.3, >= 5.3.2)

@@ -2,10 +2,12 @@
 
 # OperationsController
 class OperationsController < ApplicationController
+  include Pagy::Backend
+
   before_action :set_operation, only: %i[show edit update destroy]
 
   def index
-    @operations = current_user.operations
+    @pagy, @operations = pagy(current_user.operations)
   end
 
   def show; end
